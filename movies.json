@@ -1,0 +1,96 @@
+{
+  "Movies": [
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2020" },
+          "title": { "S": "The Last Stand" },
+          "info": { "S": "Action movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2019" },
+          "title": { "S": "Comedy Nights" },
+          "info": { "S": "Comedy movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2020" },
+          "title": { "S": "The Mystery Lake" },
+          "info": { "S": "Thriller movie action" }
+        }
+      }
+    }
+    ,
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2020" },
+          "title": { "S": "The Great Escape" },
+          "info": { "S": "Adventure movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2022" },
+          "title": { "S": "Love in the Time of Corona" },
+          "info": { "S": "Romantic movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2023" },
+          "title": { "S": "The Future is Now" },
+          "info": { "S": "Sci-fi movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2017" },
+          "title": { "S": "The Forgotten" },
+          "info": { "S": "Drama movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2016" },
+          "title": { "S": "The Last Dance" },
+          "info": { "S": "Musical movie" }
+        }
+      }
+    }
+    ,
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2015" },
+          "title": { "S": "The Great Adventure" },
+          "info": { "S": "Fantasy movie" }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "year": { "N": "2014" },
+          "title": { "S": "The Silent Night" },
+          "info": { "S": "Horror movie" }
+        }
+      }
+    }
+  ]
+}
