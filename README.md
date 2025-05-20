@@ -82,7 +82,7 @@ aws dynamodb query \
 ````
 # Task 2 - CRUD Operations on Movies using AWS CLI
 
-## Retrieve one movie by its composite key
+## Retrieve one movie
 ````
 aws dynamodb get-item \
   --table-name Movies \
@@ -126,17 +126,7 @@ aws dynamodb get-item \
 ## Advanced Query
  Get all movies from year 2020 whose title starts with "The" AND whose info contains "Action" (case-sensitive)
 
-````
-aws dynamodb query \
-  --table-name Movies \
-  --key-condition-expression "#yr = :y AND begins_with(#ttl, :prefix)" \
-  --filter-expression "contains(info, :infoSub)" \
-  --expression-attribute-names '{"#yr":"year", "#ttl":"title"}' \
-  --expression-attribute-values '{":y":{"N":"2020"}, ":prefix":{"S":"The"}, ":infoSub":{"S":"Action"}}' \
-  --endpoint-url http://localhost:8000 \
-  --no-paginate | jq
 
-````
 # Task 3 - DynamoDB with Python
 
 ## Install boto3
@@ -232,46 +222,11 @@ print("Actor deleted.")
 ````
 ## Select all actors from the Actors table
 
-````python
-import boto3
-from boto3.dynamodb.conditions import Key
-dynamodb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000', region_name='us-west-2')
-table = dynamodb.Table('Actors')
-response = table.scan()
 
-for actor in response['Items']:
-    print(actor)
-````
 ## Scan movies released after a 2016 and whose title starts with "The"
 
-````python
-
-import boto3
-
-from boto3.dynamodb.conditions import Key, Attr
-dynamodb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000', region_name='us-west-2')
-table = dynamodb.Table('Movies')
-
-response = table.scan(
-    FilterExpression=Attr('year').gt(2016) & Attr('title').begins_with('The')
-)
-for movie in response['Items']:
-    print(movie)
-````
 
 
 ## Scan movies released after a 2016 and whose title starts with "The" and info contains "Action"
-````python
-import boto3
-from boto3.dynamodb.conditions import Key, Attr
-dynamodb = boto3.resource('dynamodb', endpoint_url='http://localhost:8000', region_name='us-west-2')
-table = dynamodb.Table('Movies')
-
-response = table.scan(
-    FilterExpression=Attr('year').gt(2016) & Attr('title').begins_with('The') & Attr('info').contains('Action')
-)
-for movie in response['Items']:
-    print(movie)
-````
 
 
